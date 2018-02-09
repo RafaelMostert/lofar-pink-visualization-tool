@@ -1,0 +1,18 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+  padding-top:30px;
+  /*3.5rem;*/
+}
+.navbar {
+-webkit-box-shadow: 0 8px 6px -6px #999;
+-moz-box-shadow: 0 8px 6px -6px #999;
+box-shadow: 0 8px 6px -6px #999;
+}
+.jumbotron{
+background-image: url(images/test6.png);
+    background-position: 0% 25%;
+        background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+                text-shadow: black 0px 1px 10px;
+        }

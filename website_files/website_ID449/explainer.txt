@@ -1,0 +1,2 @@
+This directory should contain a directory for each prototype and for the outliers.
+This directory should also contain an image of the trained SOM and its heatmap.
