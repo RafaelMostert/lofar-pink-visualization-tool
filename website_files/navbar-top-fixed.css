@@ -1,0 +1,12 @@
+/* Show it is fixed to the top */
+body {
+  min-height: 60px;
+  padding-top: 4.5rem;
+}
+.navbar {
+        -webkit-box-shadow: 0 8px 6px -6px #999;
+            -moz-box-shadow: 0 8px 6px -6px #999;
+                box-shadow: 0 8px 6px -6px #999;
+
+                    /* the rest of your styling */
+            }
