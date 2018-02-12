@@ -156,7 +156,6 @@ width:440px;
     <link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
 	<script type="text/javascript">
     var hipsdir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
-    var trained_subdir = "hatfield_multiple_20x20_ID19";
     var proto_x;
     var proto_y;    
 $(document).ready(function() { //Make sure to load javascript after html is loaded
@@ -287,7 +286,7 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
     <div id="containertje" style="display:none;">
         <div id="aladin-lite-div" ></div>
         <!--<script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>-->
-        <script type="text/javascript" src="/lofar/aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="/website_files/aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
         <script type="text/javascript">
             //var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:3, target: "168.8126927145544, 53.322134981323224"});
             var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
@@ -367,7 +366,6 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
 
 
 <?php
-$trained_subdir = "hatfield_multiple_20x20_ID19";
 $outliers_dirname = "website_ID449/outliers/";
 $outliers_subdirnames = glob($outliers_dirname.'*' , GLOB_ONLYDIR);
 //print_r($outliers_subdirnames);
