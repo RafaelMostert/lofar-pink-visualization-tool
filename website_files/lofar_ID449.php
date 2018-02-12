@@ -297,21 +297,6 @@ function toggle_heatmap() {
 }
 </script>
 
-<!-- Piwik analytics -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-      (function() {
-              var u="//rafaelmostert.com/analytics/piwik/";
-                  _paq.push(['setTrackerUrl', u+'piwik.php']);
-                  _paq.push(['setSiteId', '1']);
-                      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-                      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-                        })();
-    </script>
-<!-- End Piwik Code -->
 </head>
 
 <body>
@@ -415,7 +400,7 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
     <div id="containertje" style="display:none;">
         <div id="aladin-lite-div" ></div>
         <!--<script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>-->
-        <script type="text/javascript" src="//rafaelmostert.com/aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="/lofar/aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
         <script type="text/javascript">
             //var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:3, target: "168.8126927145544, 53.322134981323224"});
             var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
