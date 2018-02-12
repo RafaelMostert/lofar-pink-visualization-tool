@@ -193,7 +193,6 @@ $(document).ready(function() { //Make sure to load javascript after html is load
             changeProtoId(proto_x  , proto_y);
             $('#red_square').animate({"top": height * proto_y + "px", "left": width * proto_x + "px"},200);
             $('#red_square').show();
-            $('#cutouts_container a').attr('href', "website_ID449/" + this.id + "/" + trained_subdir + "_prototype_" + proto_x + "_" + proto_y + ".csv");
 			$('#prototype_clicked_on').show();
             $('#cutouts_container').show(400);
             $('#cutouts_explainer').delay(400).show(400);
