@@ -19,6 +19,12 @@ https://github.com/RafaelMostert/LOFAR-PINK-library
 - outliers_IDxxx.php : page for outliers
 - about_IDxxx.php : page for acknowledgements
 
+### Local run instructions
+1. cd to the git directory of this project 
+    (the directory where this README is located)
+2. run 'php -S localhost:8000'
+3. visit 'http://localhost:8000/website_files/lofar_ID449.php'
+
 ### Installation instructions
 
 1. Train a SOM using PINK.
