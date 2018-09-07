@@ -1,9 +1,11 @@
 # PINK Visualization Tool by Rafael Mostert 2017-2018
 
 ### Prerequisites
-
+Train your own Self-organizing map using https://github.com/HITS-AIN/PINK or your own code.
 Requires the following github to create the content for the website:
 https://github.com/RafaelMostert/LOFAR-PINK-library
+
+
 
 ### Contents
 
