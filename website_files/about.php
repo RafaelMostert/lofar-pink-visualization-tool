@@ -23,7 +23,7 @@
 <!-- Bootstrap navbar -->
     <!--<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
     <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FFFFFF;">
-      <a class="navbar-brand" href="lofar_ID449.php">
+      <a class="navbar-brand" href="lofar.php">
     <img src="images/astron-logo.gif" width="105" height="30" class="d-inline-block align-top" alt="">
      <span style="text-align: left;font-size:8.2pt;color:#009cde;line-height:18px;font-family: Verdana,Arial,Segoe,sans-serif;">Netherlands Institute for Radio Astronomy</span>
   </a>  
@@ -33,10 +33,10 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="lofar_ID449.php">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="lofar.php">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="outliers_ID449.php">Morphological outliers</a>
+            <a class="nav-link" href="outliers.php">Morphological outliers</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link">Acknowledgements</a>

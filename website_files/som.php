@@ -4,12 +4,6 @@
 <!-- Mail: rafaelmostert @ gmail.com -->
 <!-- Mail: mostert @ strw.leidenuniv.nl -->
 
-<!-- To change the SOM showed by this website/tool:
-rename all occurences of _IDxxx (_ID449 in this case) to the run ID
-of your trained SOM. Furthermore, change the 'columns' and 'rows' php variables
-to match the width and height of your new SOM respectively.-->
-
-
 
 <!-- jQuery .hover to show prototypes and .click used to retrieve corresponding cutouts -->
 
@@ -133,7 +127,7 @@ float: left;
 </style>
 
 <head>
-    <title>LOFAR Visualization</title>
+    <title>SOM Visualization</title>
 	<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noodp">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -163,7 +157,7 @@ $(document).ready(function() { //Make sure to load javascript after html is load
 	$('area').hover(		
         function() { 
 			// Function is activated on hover-in of a SOM sub-area
-            $('#hovered_prototype img').attr('src', "website_ID449/" + this.id + "/prototype.png");
+            $('#hovered_prototype img').attr('src', "website/" + this.id + "/prototype.png");
             $('#hovered_prototype').css('position', 'relative');
             $('#hovered_prototype').css('z-index', 3000);
         },
@@ -183,10 +177,10 @@ $(document).ready(function() { //Make sure to load javascript after html is load
     });
 			$('#instructions').hide(400);
 			//.style.display = 'block'; 
-            $('#prototype_clicked_on img').attr('src', "website_ID449/" + this.id + "/prototype.png");
+            $('#prototype_clicked_on img').attr('src', "website/" + this.id + "/prototype.png");
 			for (i = 0; i < 10; i++) {
 				$('#cutouts' + i + ' img').show();
-				$('#cutouts' + i + ' img').attr('src', "website_ID449/" + this.id + "/" + i + ".png");
+				$('#cutouts' + i + ' img').attr('src', "website/" + this.id + "/" + i + ".png");
 				$('#cutouts' + i + ' img').attr('onerror', "this.style.display='none'"); // Hide img container if file does not exist
             }
             proto_x = this.id.split(/_|e/)[1]
@@ -213,7 +207,7 @@ $('#containertje').hide();
 $('.chalky_font2').hide();
 $('#leftpanel').css({"width": "400px"});
 var xhr= new XMLHttpRequest();
-xhr.open('GET', 'website_ID449/about_som.html', true);
+xhr.open('GET', 'website/about_som.html', true);
 xhr.onreadystatechange= function() {
     if (this.readyState!==4) return;
     if (this.status!==200) return; // or whatever error handling you want
@@ -261,7 +255,7 @@ function go_to_aladin(i) {
     // Each prototype has its own directory and each directory contains
     // a file loc.txt that contains the coordinates to the first few best
     // matching sources to this prototype.
-    $.get('website_ID449/prototype' + proto_x + '_' + proto_y + '_0/loc.txt', function(data) {
+    $.get('website/prototype' + proto_x + '_' + proto_y + '_0/loc.txt', function(data) {
         var line = data.split("\n")[i];
         var ra = line.split(';')[0];
         var dec = line.split(';')[1];
@@ -316,25 +310,25 @@ function toggle_heatmap() {
             <a class="nav-link" href="">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="outliers_ID449.php">Morphological outliers</a>
+            <a class="nav-link" href="outliers.php">Morphological outliers</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" onclick="load_file();">Downloads</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about_ID449.php">Acknowledgements</a>
+            <a class="nav-link" href="about.php">Acknowledgements</a>
           </li>
         </ul>
       </div>
      <span style="text-align: right;font-size:10.2pt;color:#009cde;line-height:18px;font-family: Verdana,Arial,Segoe,sans-serif;">
-LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
+SOM Visualization Tool by Rafa&euml;l Mostert
 </span>
     </nav>
 
 <div id="content">
 <div id="leftpanel" >
     <?php
-    $maindirname = "website_ID449/";
+    $maindirname = "website/";
 
     // Div that contains SOM and hovered prototype
     echo '<div id="som" class="containerdiv">';
@@ -431,7 +425,7 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
     <!-- Hovered prototype -->
     <!--
     <div id="hovered_prototype" class="imgContainer" style="display:none;">
-    <img src="website_ID449/prototype0_0_0/prototype.png" width="400" height="400">
+    <img src="website/prototype0_0_0/prototype.png" width="400" height="400">
     </div>
     -->
 
@@ -458,7 +452,7 @@ The map contains 20x20 neurons or prototypes, each represents a group of sources
 <div id="cutouts_container" class="imgContainer" style="display:none;">
 <div id="proto_radio_id">Radio sources from LOFAR survey that resemble the selected prototype</div>
 <?php
-$dirname = "website_ID449/prototype0_0_0/";
+$dirname = "website/prototype0_0_0/";
 $images = glob($dirname."*.png");
 
 //  Display all available images corresponding to the prototype

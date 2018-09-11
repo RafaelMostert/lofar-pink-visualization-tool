@@ -194,7 +194,7 @@ function outlier_click(i){
 
 function go_to_aladin_outliers(i) {
     // Open loc.txt, parse RA and Dec and goto these coordinates
-    $.get('website_ID449/outliers/loc.txt', function(data) {
+    $.get('website/outliers/loc.txt', function(data) {
         var line = data.split("\n")[i];
         var ra = line.split(';')[0];
         var dec = line.split(';')[1];
@@ -245,13 +245,13 @@ function show_outliers() {
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="lofar_ID449.php">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="lofar.php">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" >Morphological outliers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about_ID449.php">Acknowledgements</a>
+            <a class="nav-link" href="about.php">Acknowledgements</a>
           </li>
         </ul>
       </div>
@@ -319,7 +319,7 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
     <!-- Hovered prototype -->
     <!--
     <div id="hovered_prototype" class="imgContainer" style="display:none;">
-    <img src="website_ID449/prototype0_0_0/prototype.png" width="400" height="400">
+    <img src="website/prototype0_0_0/prototype.png" width="400" height="400">
     </div>
     -->
 
@@ -366,7 +366,7 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
 
 
 <?php
-$outliers_dirname = "website_ID449/outliers/";
+$outliers_dirname = "website/outliers/";
 $outliers_subdirnames = glob($outliers_dirname.'*' , GLOB_ONLYDIR);
 //print_r($outliers_subdirnames);
 
@@ -395,7 +395,7 @@ foreach($outliers_subdirnames  as $outliers_subdirname) {
 ?>
 
 <div id="outliers_histogram" class="imgContainer3">
-<img src="website_ID449/outliers/outliers_histogram.png">
+<img src="website/outliers/outliers_histogram.png">
 <br>
 </div>
 </div>
