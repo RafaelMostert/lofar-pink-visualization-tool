@@ -42,6 +42,6 @@ https://github.com/RafaelMostert/LOFAR-PINK-library
 
 ### TODO
 
-- Omit step 3 and 4 in installation by generating the php files in step 2 of the 
+- Test step 3 and 4 in installation by generating the php files in step 2 of the 
 installation.
 - Bundle own css in one file
