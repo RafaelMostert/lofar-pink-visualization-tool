@@ -263,14 +263,6 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
 <div id="content">
 <div id="leftpanel" >
 
-    <!-- Arrow pointing at SOM
-    <div class="chalky1" style="float:left;padding:10px;padding-bottom:5px;padding-left:80px">
-        <img src="images/arrow-up2.png" width="30px" height="60px">
-    </div>-->  
-    <!-- SOM explainer text
-    <div class="chalky1" style="float:left;padding:0px;clear:both;">
-        Self-Organizing Map 
-    </div>-->
     <!-- SOM explainer text -->
     <div class="chalky1" style="float:left;padding:0px;padding-top:380px;clear:both;">
         Click on one of the outliers to show them in context.
@@ -285,11 +277,11 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
     <!-- Embed Aladin snippet -->
     <div id="containertje" style="display:none;">
         <div id="aladin-lite-div" ></div>
-        <!--<script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>-->
         <script type="text/javascript" src="aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
         <script type="text/javascript">
             //var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:3, target: "168.8126927145544, 53.322134981323224"});
-            var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
+        // INSERT A LINK TO THE PLACE WHERE YOU HOST YOUR SURVEY BELOW TO REPLACE WISE SURVEY    
+	var hipsDir = "http://axel.u-strasbg.fr/HiPSCatService/II/328/allwise/";
         var aladin = $.aladin("#aladin-lite-div", 
             {showFullscreenControl: false, // Hide fullscreen controls 
             showGotoControl: false, // Hide go-to controls
@@ -315,15 +307,6 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
         located on the sky. The source might be accompanied or interacting with other sources or be part of some larger structure!
     </div>
     
-
-    <!-- Hovered prototype -->
-    <!--
-    <div id="hovered_prototype" class="imgContainer" style="display:none;">
-    <img src="website/prototype0_0_0/prototype.png" width="400" height="400">
-    </div>
-    -->
-
-
 
 </div>
 
@@ -392,7 +375,6 @@ foreach($outliers_subdirnames  as $outliers_subdirname) {
         echo "<img src=\"$image\" onclick=\"outlier_click($outlier_number);\" width=\"200\" height=\"200\"/><br>";
         echo '</div>';
     }
-    //echo '</div>';
 }
 
 ?>

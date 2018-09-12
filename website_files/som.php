@@ -401,7 +401,8 @@ SOM Visualization Tool by Rafa&euml;l Mostert
         <script type="text/javascript" src="aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
         <script type="text/javascript">
             //var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:3, target: "168.8126927145544, 53.322134981323224"});
-            var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
+        // INSERT A LINK TO THE PLACE WHERE YOU HOST YOUR SURVEY BELOW TO REPLACE WISE SURVEY    
+	var hipsDir = "http://axel.u-strasbg.fr/HiPSCatService/II/328/allwise/";
         var aladin = $.aladin("#aladin-lite-div", 
             {showFullscreenControl: false, // Hide fullscreen controls 
             showGotoControl: false, // Hide go-to controls
@@ -426,13 +427,6 @@ SOM Visualization Tool by Rafa&euml;l Mostert
        On the left you can see where the radio source you clicked on is
         located on the sky. The source might be accompanied or interacting with other sources or be part of some larger structure!
     </div>
-    
-    <!-- Hovered prototype -->
-    <!--
-    <div id="hovered_prototype" class="imgContainer" style="display:none;">
-    <img src="website/prototype0_0_0/prototype.png" width="400" height="400">
-    </div>
-    -->
 
 </div>
 
