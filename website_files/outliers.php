@@ -161,8 +161,8 @@ width:440px;
 $(document).ready(function() { //Make sure to load javascript after html is loaded
     var div1 = document.getElementById("dom-width");
     var div2 = document.getElementById("dom-height");
-    var width = div1.textContent;
-    var height = div2.textContent;
+    //var width = div1.textContent;
+    //var height = div2.textContent;
 });
 
 // Make Aladin Lite snippet appear and direct it to the coordinates
@@ -245,7 +245,7 @@ function show_outliers() {
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="lofar.php">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="som.php">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" >Morphological outliers</a>
@@ -286,7 +286,7 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
     <div id="containertje" style="display:none;">
         <div id="aladin-lite-div" ></div>
         <!--<script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>-->
-        <script type="text/javascript" src="/website_files/aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
         <script type="text/javascript">
             //var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:3, target: "168.8126927145544, 53.322134981323224"});
             var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
@@ -330,6 +330,18 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
 </div>
 <center>
 
+<?php
+// Retrieve total number of outliers
+$outliers_dirname = "website/outliers/";
+$outliers_subdirnames = glob($outliers_dirname.'*' , GLOB_ONLYDIR);
+
+$count_outliers = 0;
+// Loop over all subdirectories
+foreach($outliers_subdirnames  as $outliers_subdirname) {
+    $count_outliers += count(glob($outliers_subdirname."/*.png"));
+}
+?>
+
 <!-- right panel-->
 <div id="rightPanel">
 <!-- Outliers header div -->
@@ -340,25 +352,17 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
   <div class="card-body">
     <h2 class="card-title"><span style="color:#009cde;">100 morphologically rarest sources</span></h2>
     <p class="card-text" style="font-size:18pt">
-    The Self-Organizing Map is a condensed representation of the most occurrent
+    <?php
+	echo "The Self-Organizing Map is a condensed representation of the most occurrent
      morphologies present in our dataset.<br> 
     <!--Each radio source from the dataset resembles one of the prototypes in the 
     Self-Organizing Map.--> If a source barely resembles any of the prototypes in the Self-Organizing Map, it 
     is thus a morphological outlier.<br>
-    Using this heuristic, we show the 100 most morphologically unique radio sources below:
-
+    Using this heuristic, we show the $count_outliers most morphologically unique radio sources below:";
+?>
   </div>
 </div>
 
-    <!--
-    <div id="outliers_title"><strong>100 morphologically rarest sources</strong> <br>
-    The Self-Organizing Map is a condensed representation of the most occurrent
-     morphologies present in our dataset.<br> 
-    Each radio source from the dataset resembles one of the prototypes in the 
-    Self-Organizing Map. If a source barely resembles any of the prototypes in the Self-Organizing Map, it 
-    is thus a morpholical outlier.<br>
-    Using this heuristic, we selected and show the 100 most morphologically unique radio sources below:
-</div>-->
 </div>
 <!-- Div containing and showing outliers -->
 <div id="outliers_container"> <!-- class="imgContainer" >-->
@@ -368,7 +372,6 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
 <?php
 $outliers_dirname = "website/outliers/";
 $outliers_subdirnames = glob($outliers_dirname.'*' , GLOB_ONLYDIR);
-//print_r($outliers_subdirnames);
 
 // Loop over all subdirectories
 foreach($outliers_subdirnames  as $outliers_subdirname) {
@@ -404,9 +407,6 @@ foreach($outliers_subdirnames  as $outliers_subdirname) {
 </center>
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-    
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="bootstrap-4.0.0-beta.2/assets/js/vendor/popper.min.js"></script>
     <script src="bootstrap-4.0.0-beta.2/dist/js/bootstrap.min.js"></script>

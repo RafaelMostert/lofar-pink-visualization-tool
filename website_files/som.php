@@ -330,13 +330,18 @@ SOM Visualization Tool by Rafa&euml;l Mostert
     <?php
     $maindirname = "website/";
 
+	// Get number of columns and rows from som filename
+	$images = glob($maindirname."*.png");
+	preg_match_all('!\d+!', $images[0], $matches);
+	$columns = (int) $matches[0][0];
+	$rows = (int) $matches[0][1];
+
+
     // Div that contains SOM and hovered prototype
     echo '<div id="som" class="containerdiv">';
         // SOM
         $som_width=400;
         $som_height=400;
-        $columns = 20;
-        $rows = 20;
         $width = $som_width/$columns;
         $height = $som_height/$rows;
         echo '<div id="dom-width" style="display: none;">';
@@ -347,7 +352,7 @@ SOM Visualization Tool by Rafa&euml;l Mostert
         echo '</div>';
 
 
-        echo '<img id="map1" src="'.$maindirname."website.png".'" usemap="#map1" 
+        echo '<img id="map1" src="'.$images[0].'" usemap="#map1" 
             border="0" width="'.$som_width.'" height="'.$som_height.'" alt="" class="imgContainer" >';
         // Contains heatmap
         echo '<img id="heatma" src="'.$maindirname."heatmap.png".'" usemap="#map1" border="0" width="'.$som_width.'" 
@@ -393,7 +398,7 @@ SOM Visualization Tool by Rafa&euml;l Mostert
     <div id="containertje" style="display:none;">
         <div id="aladin-lite-div" ></div>
         <!--<script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>-->
-        <script type="text/javascript" src="/website_files/aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
         <script type="text/javascript">
             //var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:3, target: "168.8126927145544, 53.322134981323224"});
             var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
@@ -439,12 +444,13 @@ SOM Visualization Tool by Rafa&euml;l Mostert
   <div class="card-body">
     <h2 class="card-title"><span style="color:#009cde;" id="instruction_title">About this project</span></h2>
     <p class="card-text" style="font-size:18pt" id="som_properties">
-From the shape or morphology of a radio source we can infer physical properties of the source and its environment.<br><br>
+<?php
+echo "From the shape or morphology of a radio source we can infer physical properties of the source and its environment.<br><br>
 To find out what different morphologies are present in the LOFAR survey, we use a dimensionality reduction technique known as a <i>Self-Organizing Map</i>.<br><br>
 This is an unsupervised neural network that projects a 
 high-dimensional dataset to a discrete 2-dimensional representation.<br><br>
-The map contains 20x20 neurons or prototypes, each represents a group of sources.
-
+The map contains $columns x $rows neurons or prototypes, each represents a group of sources.";
+?>
   </div>
 </div>
 
@@ -464,17 +470,19 @@ foreach($images as $image) {
 		echo '</div>';
 		}
 }
-
-
 ?>
+
     <!-- Bracket beneath cutouts -->
     <div id="cutouts_explainer" style="display:none;">
         <div class="fill"></div>
         <!-- SOM explainer text -->
         <div class="chalky_font1" style="margin:auto;padding:10px;
             clear:both;">
-            Here are 5 of the radio sources that best resemble the prototype 
-            you just selected. <br>Click on a source to view it in the sky.
+
+		<?php           
+		echo "Here are $cutout_number of the radio sources that best resemble the prototype 
+            you just selected. <br>Click on a source to view it in the sky.";
+		?>
         </div>
     </div>
 </div>
@@ -482,9 +490,6 @@ foreach($images as $image) {
 </center>
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-    
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="bootstrap-4.0.0-beta.2/assets/js/vendor/popper.min.js"></script>
     <script src="bootstrap-4.0.0-beta.2/dist/js/bootstrap.min.js"></script>

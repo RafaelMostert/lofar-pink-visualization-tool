@@ -23,7 +23,7 @@
 <!-- Bootstrap navbar -->
     <!--<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
     <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FFFFFF;">
-      <a class="navbar-brand" href="lofar.php">
+      <a class="navbar-brand" href="som.php">
     <img src="images/astron-logo.gif" width="105" height="30" class="d-inline-block align-top" alt="">
      <span style="text-align: left;font-size:8.2pt;color:#009cde;line-height:18px;font-family: Verdana,Arial,Segoe,sans-serif;">Netherlands Institute for Radio Astronomy</span>
   </a>  
@@ -33,7 +33,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="lofar.php">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="som.php">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="outliers.php">Morphological outliers</a>
@@ -75,7 +75,7 @@ See contact information for access to the master thesis, or more information on 
           <div class="col-md-4">
             <h2><span style="color:#009cde;">Contact information</span></h2>
         <p>Rafa&euml;l Mostert, rafaelmostert@gmail.com<br>
-        Astronomy Master student at Leiden University.</p>
+        Astronomy PhD student at the Leiden Observatory, Leiden University.</p>
           </div>
           <div class="col-md-4">
             <h2><span style="color:#009cde;">PINK software license</span></h2>
