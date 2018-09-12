@@ -27,8 +27,6 @@ https://github.com/RafaelMostert/LOFAR-PINK-library
 1. Train a SOM using PINK.
 2. Generate website content using the binary_to_website.ipynb jupyter notebook
     from https://github.com/RafaelMostert/LOFAR-PINK-library
-3. Change som.php the 'columns' and the 'rows' PHP variables to match the
-    width and height of your SOM respectively.
 3. Move the generated content in the directory called 'website' in to the directory 'website_files'
 of this repository.
 4. Upload the 'website_files' directory to your server root directory.
@@ -43,7 +41,4 @@ of this repository.
 
 
 ### TODO
-
-- Remove step 3 in installation procedure by generating the php files in step 2 of the 
-installation.
 - Bundle own css in one file
