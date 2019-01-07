@@ -352,7 +352,7 @@ SOM Visualization Tool by Rafa&euml;l Mostert
         echo '</div>';
 
 
-        echo '<img id="map1" src="'.$images[0].'" usemap="#map1" 
+        echo '<img id="map1" src="'.$maindirname.$columns.'_'.$rows'.png" usemap="#map1" 
             border="0" width="'.$som_width.'" height="'.$som_height.'" alt="" class="imgContainer" >';
         // Contains heatmap
         echo '<img id="heatma" src="'.$maindirname."heatmap.png".'" usemap="#map1" border="0" width="'.$som_width.'" 
