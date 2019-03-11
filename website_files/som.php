@@ -7,131 +7,7 @@
 
 <!-- jQuery .hover to show prototypes and .click used to retrieve corresponding cutouts -->
 
-<style type="text/css">
 
-@font-face {
-  font-family: 'icomoon';
-  src: url("../fonts/icomoon.eot?-xb0za8");
-  src: url("../fonts/icomoon.eot?#iefix-xb0za8") format("embedded-opentype"), url("../fonts/icomoon.woff?-xb0za8") format("woff"), url("../fonts/icomoon.ttf?-xb0za8") format("truetype"), url("../fonts/icomoon.svg?-xb0za8#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-#content, html{
-    height: 98%;
-}
-
-@font-face {
-    font-family:chalk;
-    src: url('chalkItUp.ttf');
-}
-
-
-body{background-color:#EEEEEE;margin:20px;color:#004b93;
-max-width:1800px;line-height:1.6;font-size:18px;color:#444;padding:0
-10px;
-font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-}
-h1,h2,h3{line-height:1.2}
-
-.imgContainer{
-    display:inline-block;
-}
-
-.containerdiv {
-    border: 0;
-    float: left;
-    position: relative;
-}
-.fill {
-    margin-top:10px;
-    height:30px;/*border-left:40px;border-right:40px;*/
-    width:calc(100% - 80px);
-    overflow: hidden;
-    background-size: 100% 100%;
-    background-position: center;
-    background-image: url('images/bracket2.png');
-}
-
-.chalky_font1{
-    font-family:chalk;
-    font-size:18pt;
-}
-.chalky_font2{
-    font-family:chalk;
-    font-size:14pt;
-    display:none;
-    float:left;
-    padding:10px;
-    /*width:350px;*/
-    width:calc(100% - 1200px);
-    clear:right;
-}
-.chalky_font3{
-    font-family:chalk;
-    font-size:14pt;
-    color:white;
-    display:none;
-    position:absolute;
-    z-index:19;
-}
-.chalky_font_black{
-    font-family:chalk;
-    font-size:14pt;
-    display:none;
-    position:absolute;
-    z-index:18;
-}
-
-.heatmap {
-    border: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#proto_id, #prototype_clicked_on{
-    margin: 20px;
-}
-
-#buttons {
-    float: left;
-    clear: both;
-    position:relative;
-}
-
-#leftpanel {
-    float: left;
-    width: 400px;
-    height:440px;
-    position: relative;
-}
-
-#cutouts_container {
-    margin: 0px;
-    float: left;
-    position: relative;
-    width: calc(100% - 460px);/*
-    clear: right;*/
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-
-#som {
-width:400px;
-position: relative;
-}
-
-#containertje{
-position: relative;
-float: left;
-}
-
-#aladin-lite-div{
-    width:800px;
-    height:400px;
-}
-</style>
 
 <head>
     <title>SOM Visualization</title>
@@ -139,6 +15,8 @@ float: left;
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- Own stylesheet -->
+    <link href="default.css" rel="stylesheet" type="text/css">
     <!-- Include ASTRON favicon -->
     <link rel="icon" href="images/favicon.ico">
     <!-- Popover CSS 
@@ -146,8 +24,6 @@ float: left;
     --> 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="navbar-top-fixed.css" rel="stylesheet">
     <!-- include Aladin Lite CSS file in the head section of your page -->
@@ -512,32 +388,4 @@ foreach($images as $image) {
 </body>
 
 </html>
-
-
-<!-- Copyright notification related to the use of Bootstrap code snippets:
-
-The MIT License (MIT)
-
-Copyright (c) 2011-2016 Twitter, Inc.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
--->
 
