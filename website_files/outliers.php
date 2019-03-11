@@ -53,7 +53,7 @@ h1,h2,h3{line-height:1.2}
 
 .chalky1{
     font-family:chalk;
-    font-size:22pt;
+    font-size:18pt;
 }
 .chalky2{
     font-family:chalk;
@@ -128,7 +128,7 @@ width:440px;
 
 #aladin-lite-div{
     width:440px;
-    height:800px;
+    height: 600px;
     -webkit-box-shadow:0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow:0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -147,7 +147,7 @@ width:440px;
     <link href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" rel="stylesheet">
     --> 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap-4.0.0-beta.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -198,7 +198,7 @@ function go_to_aladin_outliers(i) {
         var line = data.split("\n")[i];
         var ra = line.split(';')[0];
         var dec = line.split(';')[1];
-        //console.log(ra, dec); // Uncomment to write coordinates to console
+        console.log(ra, dec); // Uncomment to write coordinates to console
         aladin.gotoRaDec(ra,dec);
         aladin.setFov(12/60);
                    }, 'text');  
@@ -277,25 +277,49 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
     <!-- Embed Aladin snippet -->
     <div id="containertje" style="display:none;">
         <div id="aladin-lite-div" ></div>
+        <input id="LOFARHETDEX" type="radio" name="survey" value="LOFARHETDEX" checked>
+            <label for="LOFARHETDEX">Radio (LOFAR)  <label>
+        <input id="SDSS9" type="radio" name="survey" value="P/SDSS9/color">
+            <label for="SDSS9">Optical (SDSS9)  <label>
+        <input id="allWISE" type="radio" name="survey" value="P/allWISE/color">
+            <label for="allWISE">Infra-red (allWISE)  <label>
+        <script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+        <script type="text/javascript">
+        // INSERT A LINK TO THE PLACE WHERE YOU HOST YOUR SURVEY BELOW TO REPLACE WISE SURVEY    
+	var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high"; 
+        var aladin = A.aladin("#aladin-lite-div", 
+            {showFullscreenControl: false, // Hide fullscreen controls 
+            showGotoControl: false, // Hide go-to controls
+            showFrame: false, //Hide frame 'J2000' enzo
+            showLayersControl : false,}); // Hide coordinates
+            aladin.setImageSurvey(aladin.createImageSurvey('LOFARHETDEX', 'LOFAR (radio)',hipsDir, 'equatorial', 9, {imgFormat: 'png'}));
+            $('input[name=survey]').change(function() {
+                aladin.setImageSurvey($(this).val());
+            });
+        </script>
+    <!-- Embed Aladin snippet
+    <div id="containertje" style="display:none;">
+        <div id="aladin-lite-div" ></div>
         <script type="text/javascript" src="aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
         <script type="text/javascript">
             //var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:3, target: "168.8126927145544, 53.322134981323224"});
         // INSERT A LINK TO THE PLACE WHERE YOU HOST YOUR SURVEY BELOW TO REPLACE WISE SURVEY    
-	var hipsDir = "http://axel.u-strasbg.fr/HiPSCatService/II/328/allwise/";
+//var hipsDir = "http://axel.u-strasbg.fr/HiPSCatService/II/328/allwise";
+var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
         var aladin = $.aladin("#aladin-lite-div", 
             {showFullscreenControl: false, // Hide fullscreen controls 
             showGotoControl: false, // Hide go-to controls
             showFrame: false}); // Hide coordinates
             aladin.setImageSurvey(aladin.createImageSurvey('LOFARHETDEX', 'LOFAR (radio)',hipsDir, 'equatorial', 9, {imgFormat: 'png'}));
         </script>
-        
+    -->    
         <!-- Text raising awareness about the Aladin controls-->
-        <div class="chalky3" style="line-height:1.2;top:25px;left:40px;">   
+        <div class="chalky3" style="line-height:1.2;bottom:0px;left:40px;color:black;">   
                 Observe the radio source in 
-                different frequencies <br>&#10550; 
+                different frequencies  
         </div>
         
-        <div class="chalky3" style="top:420px;right:5px;
+        <div class="chalky3" style="top:320px;right:5px;
             width:150px">   
             Feel free to zoom, scroll or pan around <!--&#8594;-->
         </div>
@@ -334,14 +358,14 @@ foreach($outliers_subdirnames  as $outliers_subdirname) {
 <div class="card" id="instructions" style="text-align:left;">
   <div class="card-body">
     <h2 class="card-title"><span style="color:#009cde;">100 morphologically rarest sources</span></h2>
-    <p class="card-text" style="font-size:18pt">
+    <p class="card-text" style="font-size:14pt">
     <?php
 	echo "The Self-Organizing Map is a condensed representation of the most occurrent
      morphologies present in our dataset.<br> 
     <!--Each radio source from the dataset resembles one of the prototypes in the 
     Self-Organizing Map.--> If a source barely resembles any of the prototypes in the Self-Organizing Map, it 
     is thus a morphological outlier.<br>
-    Using this heuristic, we show the $count_outliers most morphologically unique radio sources below:";
+    Using this heuristic, we show the $count_outliers most morphologically unique radio sources from the <a href='https://lofar-surveys.org/surveys.html'>LoTSS wide field radio survey</a> below:";
 ?>
   </div>
 </div>
@@ -389,9 +413,9 @@ foreach($outliers_subdirnames  as $outliers_subdirname) {
 </center>
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="bootstrap-4.0.0-beta.2/assets/js/vendor/popper.min.js"></script>
-    <script src="bootstrap-4.0.0-beta.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <!-- <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    -->
 
 </body>
 

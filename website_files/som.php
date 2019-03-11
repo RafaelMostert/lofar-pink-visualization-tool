@@ -54,11 +54,11 @@ h1,h2,h3{line-height:1.2}
 
 .chalky_font1{
     font-family:chalk;
-    font-size:22pt;
+    font-size:18pt;
 }
 .chalky_font2{
     font-family:chalk;
-    font-size:22pt;
+    font-size:14pt;
     display:none;
     float:left;
     padding:10px;
@@ -73,6 +73,13 @@ h1,h2,h3{line-height:1.2}
     display:none;
     position:absolute;
     z-index:19;
+}
+.chalky_font_black{
+    font-family:chalk;
+    font-size:14pt;
+    display:none;
+    position:absolute;
+    z-index:18;
 }
 
 .heatmap {
@@ -138,7 +145,7 @@ float: left;
     <link href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" rel="stylesheet">
     --> 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap-4.0.0-beta.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -146,7 +153,6 @@ float: left;
     <!-- include Aladin Lite CSS file in the head section of your page -->
     <link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
 	<script type="text/javascript">
-    var hipsdir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
     var proto_x;
     var proto_y;    
 $(document).ready(function() { //Make sure to load javascript after html is loaded
@@ -243,6 +249,7 @@ function cutout_click(i){
     $('.chalky_font2').delay(800).show(400);
     if (chalk_once == true){
         $('.chalky_font3').delay(6000).show(400);
+        $('.chalky_font_black').delay(6000).show(400);
         $('.chalky_font3').delay(16000).hide(400);
         chalk_once = false;};
     last_clicked_cutout = "#cutouts"+i; 
@@ -259,7 +266,7 @@ function go_to_aladin(i) {
         var line = data.split("\n")[i];
         var ra = line.split(';')[0];
         var dec = line.split(';')[1];
-        //console.log(ra, dec); // Uncomment to write coordinates to console
+        console.log(ra, dec); // Uncomment to write coordinates to console
         aladin.gotoRaDec(ra,dec);
         aladin.setFov(12/60);
                    }, 'text');  
@@ -271,20 +278,20 @@ function changeProtoId(xxx,yyy) {
 }
 
 
-$(function () {
+/*$(function () {
     $('[data-toggle="popover"]').popover({html:true, content:function() {
                   return $('#owner-popover').html();
                 }})
 })
-
+ */
 
 // Toggle heatmap visibility
 function toggle_heatmap() {
     if (document.getElementById("heatmap_button").innerHTML == 'Show heatmap'){
-        $('#heatma').show();
+        $('#heatmap').show();
         $('#heatmap_button').text('Hide heatmap');
     } else {
-        $('#heatma').hide();
+        $('#heatmap').hide();
         $('#heatmap_button').text('Show heatmap');
     }
 }
@@ -312,9 +319,9 @@ function toggle_heatmap() {
           <li class="nav-item">
             <a class="nav-link" href="outliers.php">Morphological outliers</a>
           </li>
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <a class="nav-link" onclick="load_file();">Downloads</a>
-          </li>
+          </li>-->
           <li class="nav-item">
             <a class="nav-link" href="about.php">Acknowledgements</a>
           </li>
@@ -351,11 +358,11 @@ SOM Visualization Tool by Rafa&euml;l Mostert
                 echo htmlspecialchars($height);
         echo '</div>';
 
-
-        echo '<img id="map1" src="'.$maindirname.$columns.'_'.$rows'.png" usemap="#map1" 
+        echo '<script>console.log("'.$maindirname.$rows.'_'.$columns.'.png");</script>'; 
+        echo '<img id="map1" src="'.$maindirname.$rows.'_'.$columns.'.png" usemap="#map1" 
             border="0" width="'.$som_width.'" height="'.$som_height.'" alt="" class="imgContainer" >';
         // Contains heatmap
-        echo '<img id="heatma" src="'.$maindirname."heatmap.png".'" usemap="#map1" border="0" width="'.$som_width.'" 
+        echo '<img id="heatmap" src="'.$maindirname."heatmap.png".'" usemap="#map1" border="0" width="'.$som_width.'" 
             height="'.$som_height.'" alt="" class="heatmap" style="display:none;">';
         echo '<map name="map1" id="_map1">';
         $title = "test_title";
@@ -379,9 +386,9 @@ SOM Visualization Tool by Rafa&euml;l Mostert
         ?>
     <!-- Button to toggle heatmap -->
     <button type="button" class="btn btn-primary" onclick="toggle_heatmap();" id="heatmap_button">Show heatmap</button>
-    <!-- Button to show som properties -->
+    <!-- Button to show som properties
     <button type="button" class="btn btn-primary" onclick="load_file();" id="heatmap_button">SOM properties</button>
-
+-->
     <!-- Arrow pointing at SOM -->
     <div class="chalky_font1" style="float:right;padding:10px;padding-right:80px">
         <img src="images/arrow-up2.png" width="30px" height="60px">
@@ -397,23 +404,34 @@ SOM Visualization Tool by Rafa&euml;l Mostert
     <!-- Embed Aladin snippet -->
     <div id="containertje" style="display:none;">
         <div id="aladin-lite-div" ></div>
-        <!--<script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>-->
-        <script type="text/javascript" src="aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
+        <input id="LOFARHETDEX" type="radio" name="survey" value="LOFARHETDEX" checked>
+            <label for="LOFARHETDEX">Radio (LOFAR)  <label>
+        <input id="SDSS9" type="radio" name="survey" value="P/SDSS9/color">
+            <label for="SDSS9">Optical (SDSS9)  <label>
+        <input id="allWISE" type="radio" name="survey" value="P/allWISE/color">
+            <label for="allWISE">Infra-red (allWISE)  <label>
+        <script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
         <script type="text/javascript">
-            //var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:3, target: "168.8126927145544, 53.322134981323224"});
         // INSERT A LINK TO THE PLACE WHERE YOU HOST YOUR SURVEY BELOW TO REPLACE WISE SURVEY    
-	var hipsDir = "http://axel.u-strasbg.fr/HiPSCatService/II/328/allwise/";
-        var aladin = $.aladin("#aladin-lite-div", 
+	var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high"; 
+        var aladin = A.aladin("#aladin-lite-div", 
             {showFullscreenControl: false, // Hide fullscreen controls 
             showGotoControl: false, // Hide go-to controls
-            showFrame: false}); // Hide coordinates
+            showFrame: false, //Hide frame 'J2000' enzo
+            showLayersControl : false,}); // Hide coordinates
             aladin.setImageSurvey(aladin.createImageSurvey('LOFARHETDEX', 'LOFAR (radio)',hipsDir, 'equatorial', 9, {imgFormat: 'png'}));
+            $('input[name=survey]').change(function() {
+                aladin.setImageSurvey($(this).val());
+            });
         </script>
+
         
         <!-- Text raising awareness about the Aladin controls-->
-        <div class="chalky_font3" style="line-height:1.2;top:25px;left:40px;">   
-                Observe the radio source in 
-                different frequencies <br>&#10550; 
+        <div class="chalky_font_black" style="line-height:1.2;bottom:40px;left:450px;">   
+                &#10550; 
+        </div>
+        <div class="chalky_font3" style="line-height:1.2;top:370;left:80px;">   
+               <!-- Observe the radio source in different frequencies -->
         </div>
         
         <div class="chalky_font3" style="top:110px;right:20px;
@@ -437,13 +455,14 @@ SOM Visualization Tool by Rafa&euml;l Mostert
 <div class="card" id="instructions" style="width:900px;text-align:left;">
   <div class="card-body">
     <h2 class="card-title"><span style="color:#009cde;" id="instruction_title">About this project</span></h2>
-    <p class="card-text" style="font-size:18pt" id="som_properties">
+    <p class="card-text" style="font-size:14pt" id="som_properties">
 <?php
 echo "From the shape or morphology of a radio source we can infer physical properties of the source and its environment.<br><br>
-To find out what different morphologies are present in the LOFAR survey, we use a dimensionality reduction technique known as a <i>Self-Organizing Map</i>.<br><br>
+To find out what different morphologies are present in the LOFAR radio survey, we use a dimensionality reduction technique known as a <a href='https://en.wikipedia.org/wiki/Self-organizing_map'><i>Self-Organizing Map</i></a>.<br><br>
 This is an unsupervised neural network that projects a 
 high-dimensional dataset to a discrete 2-dimensional representation.<br><br>
-The map contains $columns x $rows neurons or prototypes, each represents a group of sources.";
+The map contains $columns x $rows neurons or prototypes, each represents a cluster of sources.<br><br>
+The radio data we used, with frequencies between 120 and 168Mhz, is part of the <a href='https://lofar-surveys.org/surveys.html'>LoTSS wide area survey</a>."; 
 ?>
   </div>
 </div>
@@ -484,10 +503,12 @@ foreach($images as $image) {
 </center>
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="bootstrap-4.0.0-beta.2/assets/js/vendor/popper.min.js"></script>
-    <script src="bootstrap-4.0.0-beta.2/dist/js/bootstrap.min.js"></script>
+    <!--<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 
+-->
+    <!-- <script src="bootstrap-4.0.0-beta.2/assets/js/vendor/popper.min.js"></script>
+    <script src="bootstrap-4.0.0-beta.2/dist/js/bootstrap.min.js"></script>-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

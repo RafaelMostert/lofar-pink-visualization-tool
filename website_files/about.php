@@ -13,7 +13,7 @@
     <!-- Include ASTRON favicon -->
     <link rel="icon" href="images/favicon.ico">
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap-4.0.0-beta.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
 
@@ -21,7 +21,6 @@
 
 <body>
 <!-- Bootstrap navbar -->
-    <!--<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
     <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FFFFFF;">
       <a class="navbar-brand" href="som.php">
     <img src="images/astron-logo.gif" width="105" height="30" class="d-inline-block align-top" alt="">
@@ -55,11 +54,15 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
         <div class="container">
             <h1 class="display-6">Unveiling the morphologies of the faint radio source population through unsupervised machine learning</h1>
           <p>
-This interactive website is developed by Rafa&euml;l Mostert as part of his master thesis
+This interactive website is developed by Rafa&euml;l Mostert as part of his master thesis and PhD
 <br>under supervision of
  Prof.dr. H.J.A. R&ouml;ttgering and Dr. K.J. Duncan at Leiden University.<br><br> 
 The Self-Organizing Map is trained using the <i>PINK</i> software.
 <br>
+The radio data, 120-168Mhz, is taken from the LOFAR Two-metre Sky Survey (<a href="https://lofar-surveys.org/surveys.html">LoTSS wide area</a>).
+<br>
+The optical data, is taken from the SLOAN Digital Sky Survey (<a href="https://www.sdss.org/">SDSS</a>).
+<br><br>
 See contact information for access to the master thesis, or more information on the project.<br>
 </p>
           <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
@@ -103,11 +106,7 @@ Applying Self-Organizing Maps to the LOFAR Two-meter Sky Survey.</i> Msc thesis,
 <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster-->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    
-    <script>window.jQuery || document.write('<script src="bootstrap-4.0.0-beta.2/assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="bootstrap-4.0.0-beta.2/assets/js/vendor/popper.min.js"></script>
-    <script src="bootstrap-4.0.0-beta.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
 </body>
 
