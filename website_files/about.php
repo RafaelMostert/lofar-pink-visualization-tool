@@ -72,7 +72,9 @@ The Self-Organizing Map is trained using the <i>PINK</i> software.
 <br>
 The radio data, 120-168Mhz, is taken from the LOFAR Two-metre Sky Survey (<a href="https://lofar-surveys.org/surveys.html">LoTSS wide area</a>).
 <br>
-The optical data, is taken from the SLOAN Digital Sky Survey (<a href="https://www.sdss.org/">SDSS</a>).
+<!--The optical data, is taken from the SLOAN Digital Sky Survey (<a href="https://www.sdss.org/">SDSS</a>).
+-->
+The optical data, is taken from the <a href="https://panstarrs.stsci.edu/">PanSTARRS</a>) survey.
 <br><br>
 See contact information for access to the master thesis, or more information on the project.<br>
 </p>

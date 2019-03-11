@@ -280,8 +280,10 @@ SOM Visualization Tool by Rafa&euml;l Mostert
         <div id="aladin-lite-div" ></div>
         <input id="LOFARHETDEX" type="radio" name="survey" value="LOFARHETDEX" checked>
             <label for="LOFARHETDEX">Radio (LOFAR)  <label>
-        <input id="SDSS9" type="radio" name="survey" value="P/SDSS9/color">
-            <label for="SDSS9">Optical (SDSS9)  <label>
+        <input id="panstars" type="radio" name="survey" value="P/PanSTARRS/DR1/color-z-zg-g">
+            <label for="PanSTARRS">Optical (PanSTARRS) <label>
+        <!--<input id="SDSS9" type="radio" name="survey" value="P/SDSS9/color-alt">
+            <label for="SDSS9">Optical (SDSS9)  <label>-->
         <input id="allWISE" type="radio" name="survey" value="P/allWISE/color">
             <label for="allWISE">Infra-red (allWISE)  <label>
         <script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
