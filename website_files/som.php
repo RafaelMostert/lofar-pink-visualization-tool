@@ -24,8 +24,6 @@
     --> 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="navbar-top-fixed.css" rel="stylesheet">
     <!-- include Aladin Lite CSS file in the head section of your page -->
     <link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
 	<script type="text/javascript">
@@ -379,11 +377,7 @@ foreach($images as $image) {
 </center>
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!--<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-
--->
-    <!-- <script src="bootstrap-4.0.0-beta.2/assets/js/vendor/popper.min.js"></script>
-    <script src="bootstrap-4.0.0-beta.2/dist/js/bootstrap.min.js"></script>-->
+    <!-- Placed at the end of the document so the pages load faster-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
 

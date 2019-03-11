@@ -2,7 +2,18 @@
 <html>
 <!-- Author: Rafael Mostert 2017 -->
 <!-- Mail: mostert @ strw.leidenuniv.nl -->
+<style>
 
+.jumbotron{
+background-image: url(images/test6.png);
+    background-position: 0% 25%;
+        background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+                text-shadow: black 0px 1px 10px;
+}
+
+</style>
 
 <head>
     <title>LOFAR Visualization</title>
@@ -14,9 +25,6 @@
     <link rel="icon" href="images/favicon.ico">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -65,7 +73,6 @@ The optical data, is taken from the SLOAN Digital Sky Survey (<a href="https://w
 <br><br>
 See contact information for access to the master thesis, or more information on the project.<br>
 </p>
-          <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
         </div>
       </div>
 
@@ -92,7 +99,7 @@ See contact information for access to the master thesis, or more information on 
 
         <hr>
 
-      </div> <!-- /container -->
+      </div> 
 
     </main>
 <footer class="container">
