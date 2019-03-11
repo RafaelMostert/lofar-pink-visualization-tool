@@ -123,7 +123,7 @@ function show_outliers() {
         </ul>
       </div>
      <span style="text-align: right;font-size:10.2pt;color:#009cde;line-height:18px;font-family: Verdana,Arial,Segoe,sans-serif;">
-LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
+SOM Visualization Tool by <a href="https://github.com/RafaelMostert">Rafa&euml;l Mostert</a>
 </span>
     </nav>
 
