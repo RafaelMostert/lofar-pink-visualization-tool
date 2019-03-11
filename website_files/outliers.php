@@ -1,139 +1,7 @@
 <!doctype html>
 <html>
-<!-- Author: Rafael yyMostert 2017 -->
+<!-- Author: Rafael Mostert 2017-2019 -->
 <!-- Mail: mostert @ strw.leidenuniv.nl -->
-
-<style type="text/css">
-
-@font-face {
-  font-family: 'icomoon';
-  src: url("../fonts/icomoon.eot?-xb0za8");
-  src: url("../fonts/icomoon.eot?#iefix-xb0za8") format("embedded-opentype"), url("../fonts/icomoon.woff?-xb0za8") format("woff"), url("../fonts/icomoon.ttf?-xb0za8") format("truetype"), url("../fonts/icomoon.svg?-xb0za8#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-#content, html{
-    height: 98%;
-}
-
-@font-face {
-    font-family:chalk;
-    src: url('chalkItUp.ttf');
-}
-
-
-body{background-color:#EEEEEE;margin:20px;color:#004b93;
-max-width:1800px;line-height:1.6;font-size:18px;color:#444;padding:0
-10px;
-font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-}
-h1,h2,h3{line-height:1.2}
-
-.imgContainer{
-    /*width:calc(100% - 440px);
-    float:left;
-    position:relative;*/
-    display:inline-block;
-}
-
-.imgContainer2{
-    /*float:left;*/
-    clear:right;
-    width:100%;
-}
-.imgContainer3{
-    width: 100%;
-    float:left;
-}
-.containerdiv {
-    border: 0;
-    float: left;
-    position: relative;
-}
-
-.chalky1{
-    font-family:chalk;
-    font-size:18pt;
-}
-.chalky2{
-    font-family:chalk;
-    font-size:22pt;
-    display:none;
-    float:left;
-    padding:10px;
-    width:350px;
-    clear:right;
-}
-.chalky3{
-    font-family:chalk;
-    font-size:14pt;
-    color:white;
-    display:none;
-    position:absolute;
-    z-index:19;
-    text-shadow: 1px 1px 4px black;
-}
-
-.heatmap {
-    border: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-#proto_id, #outliers_title, #prototype_clicked_on{
-    margin: 20px;
-}
-#buttons {
-    float: left;
-    clear: both;
-    position:relative;
-}
-#leftpanel {
-    float: left;
-    width: 400px;
-    height:100%;
-    position: relative;
-}
-
-#rightPanel{
-    margin:0px;
-    float:right;
-    width:calc(100% - 440px);
-    height:100%;
-}
-
-#outliers_header{
-    margin:0px;
-    float:left;
-    width: 100%;
-    clear:right; 
-}
-
-#outliers_container {
-    width:98%;
-    height: 100%;
-    overflow: auto;
-}
-
-#som {
-width:400px;
-position: fixed;
-/*clear: both;*/
-}
-
-#containertje{
-position: fixed;
-width:440px;
-}
-
-#aladin-lite-div{
-    width:440px;
-    height: 600px;
-    -webkit-box-shadow:0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow:0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-</style>
 
 <head>
     <title>LOFAR Visualization</title>
@@ -143,18 +11,20 @@ width:440px;
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <!-- Include ASTRON favicon -->
     <link rel="icon" href="images/favicon.ico">
-    <!-- Popover CSS 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" rel="stylesheet">
-    --> 
+
+
+<!-- CSS Stylesheets
+================================================================= -->
+    <!-- Own stylesheet -->
+    <link href="default.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="navbar-top-fixed.css" rel="stylesheet">
-    <!-- include Aladin Lite CSS file in the head section of your page -->
+    <!-- Aladin Lite CSS -->
     <link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
-	<script type="text/javascript">
+
+<!-- Javascript functions 
+================================================================= -->
+<script type="text/javascript">
     var hipsdir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
     var proto_x;
     var proto_y;    
@@ -170,27 +40,25 @@ $(document).ready(function() { //Make sure to load javascript after html is load
 var last_clicked_outlier;
 var chalk_once = true;
 function outlier_click(i){
-    $('#som').hide();
-    $('.chalky1').hide();
+    $('.chalky-font1').hide();
     $(last_clicked_outlier).css({"border":"none",
         "-webkit-box-shadow":"none",
         "-moz-box-shadow":"none",
             "box-shadow":"none"
     });
-    $('#containertje').show(400)
+    $('#aladin-container-outliers').show(400)
     $('#'+ i).css({"border":"2px solid red",
         "-webkit-box-shadow":"inset 0px 0px 0px 4px red",
         "-moz-box-shadow":"inset 0px 0px 0px 4px red",
             "box-shadow":"inset 0px 0px 0px 4px red"
 });
     if (chalk_once == true){
-        $('.chalky3').delay(1000).show(400);
-        $('.chalky3').delay(10000).hide(400);
+        $('.chalky-font3').delay(1000).show(400);
+        $('.chalky-font3').delay(10000).hide(400);
         chalk_once = false;};
     last_clicked_outlier = "#"+i; 
     go_to_aladin_outliers(i);
 }   
-
 
 function go_to_aladin_outliers(i) {
     // Open loc.txt, parse RA and Dec and goto these coordinates
@@ -215,26 +83,25 @@ $(function () {
                 }})
 })
 
-
 function show_outliers() {
     // Show outliers div, hide most others
 	$('#red_square').show();
 }
+
 function show_outliers() {
     // Show outliers div, hide most others
 	$('#prototype_clicked_on').hide();
-	$('#outliers_header').show();
+	$('#outliers-header').show();
     $('#outliers_container').show();
 }
 </script>
-
 </head>
 
 <body>
 
-<!-- Bootstrap navbar -->
-    <!--<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
-    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FFFFFF;">
+<!-- Bootstrap navbar 
+================================================================= -->
+<nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FFFFFF;">
       <a class="navbar-brand" >
     <img src="images/astron-logo.gif" width="105" height="30" class="d-inline-block align-top" alt="">
      <span style="text-align: left;font-size:8.2pt;color:#009cde;line-height:18px;font-family: Verdana,Arial,Segoe,sans-serif;">Netherlands Institute for Radio Astronomy</span>
@@ -261,22 +128,25 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
     </nav>
 
 <div id="content">
-<div id="leftpanel" >
+<!-- SOM explainer text and arrows 
+================================================================= -->
+<div id="leftpanel-outliers" >
 
     <!-- SOM explainer text -->
-    <div class="chalky1" style="float:left;padding:0px;padding-top:380px;clear:both;">
+    <div class="chalky-font1" style="float:left;padding:0px;padding-top:380px;clear:both;">
         Click on one of the outliers to show them in context.
     </div>
     <!-- Arrow pointing at outliers -->
-    <div class="chalky1" style="float:right;padding:5px;padding-top:0px;padding-left:80px">
+    <div class="chalky-font1" style="float:right;padding:5px;padding-top:0px;padding-left:80px">
         <img src="images/arrow-right.png" width="90px" height="30px">
     </div>  
 
 </div>
 
-    <!-- Embed Aladin snippet -->
-    <div id="containertje" style="display:none;">
-        <div id="aladin-lite-div" ></div>
+<!-- Embedded Aladin snippet 
+================================================================= -->
+    <div id="aladin-container-outliers" style="display:none;">
+        <div id="aladin-lite-div-outliers" ></div>
         <input id="LOFARHETDEX" type="radio" name="survey" value="LOFARHETDEX" checked>
             <label for="LOFARHETDEX">Radio (LOFAR)  <label>
         <input id="SDSS9" type="radio" name="survey" value="P/SDSS9/color">
@@ -287,7 +157,7 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
         <script type="text/javascript">
         // INSERT A LINK TO THE PLACE WHERE YOU HOST YOUR SURVEY BELOW TO REPLACE WISE SURVEY    
 	var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high"; 
-        var aladin = A.aladin("#aladin-lite-div", 
+        var aladin = A.aladin("#aladin-lite-div-outliers", 
             {showFullscreenControl: false, // Hide fullscreen controls 
             showGotoControl: false, // Hide go-to controls
             showFrame: false, //Hide frame 'J2000' enzo
@@ -297,36 +167,20 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
                 aladin.setImageSurvey($(this).val());
             });
         </script>
-    <!-- Embed Aladin snippet
-    <div id="containertje" style="display:none;">
-        <div id="aladin-lite-div" ></div>
-        <script type="text/javascript" src="aladin/AladinLite-2017-08-25/aladin.min.js" charset="utf-8"></script>
-        <script type="text/javascript">
-            //var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:3, target: "168.8126927145544, 53.322134981323224"});
-        // INSERT A LINK TO THE PLACE WHERE YOU HOST YOUR SURVEY BELOW TO REPLACE WISE SURVEY    
-//var hipsDir = "http://axel.u-strasbg.fr/HiPSCatService/II/328/allwise";
-var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
-        var aladin = $.aladin("#aladin-lite-div", 
-            {showFullscreenControl: false, // Hide fullscreen controls 
-            showGotoControl: false, // Hide go-to controls
-            showFrame: false}); // Hide coordinates
-            aladin.setImageSurvey(aladin.createImageSurvey('LOFARHETDEX', 'LOFAR (radio)',hipsDir, 'equatorial', 9, {imgFormat: 'png'}));
-        </script>
-    -->    
         <!-- Text raising awareness about the Aladin controls-->
-        <div class="chalky3" style="line-height:1.2;bottom:0px;left:40px;color:black;">   
+        <div class="chalky-font3" style="line-height:1.2;bottom:0px;left:40px;color:black;">   
                 Observe the radio source in 
                 different frequencies  
         </div>
         
-        <div class="chalky3" style="top:320px;right:5px;
+        <div class="chalky-font3" style="top:320px;right:5px;
             width:150px">   
             Feel free to zoom, scroll or pan around <!--&#8594;-->
         </div>
     </div>
     
     <!-- Text explaining Aladin snippet -->
-    <div class="chalky2" style="">
+    <div class="chalky-font4" style="">
        On the left you can see where the radio source you clicked on is
         located on the sky. The source might be accompanied or interacting with other sources or be part of some larger structure!
     </div>
@@ -350,11 +204,12 @@ foreach($outliers_subdirnames  as $outliers_subdirname) {
 ?>
 
 <!-- right panel-->
-<div id="rightPanel">
+<div id="right-panel">
 <!-- Outliers header div -->
-<div id="outliers_header" class="imgContainer" >
+<div id="outliers-header" class="imgContainer" >
 
-<!-- On landing page, display instructions about the site -->
+<!-- On landing page, display welcome message and instructions about the site 
+================================================================= -->
 <div class="card" id="instructions" style="text-align:left;">
   <div class="card-body">
     <h2 class="card-title"><span style="color:#009cde;">100 morphologically rarest sources</span></h2>
@@ -371,10 +226,10 @@ foreach($outliers_subdirnames  as $outliers_subdirname) {
 </div>
 
 </div>
-<!-- Div containing and showing outliers -->
+
+<!-- Div containing and showing outliers
+================================================================= -->
 <div id="outliers_container"> <!-- class="imgContainer" >-->
-
-
 
 <?php
 $outliers_dirname = "website/outliers/";
@@ -400,7 +255,6 @@ foreach($outliers_subdirnames  as $outliers_subdirname) {
         echo '</div>';
     }
 }
-
 ?>
 
 <div id="outliers_histogram" class="imgContainer3">
@@ -411,12 +265,11 @@ foreach($outliers_subdirnames  as $outliers_subdirname) {
 
 </div>
 </center>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-    <!-- <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    -->
+    
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster-->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
 </body>
-
 </html>

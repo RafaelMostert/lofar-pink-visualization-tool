@@ -1,18 +1,16 @@
 <!doctype html>
 <html>
-<!-- Author: Rafael Mostert 2017 -->
+<!-- Author: Rafael Mostert 2017-2019 -->
 <!-- Mail: mostert @ strw.leidenuniv.nl -->
-<style>
 
+<style>
 .jumbotron{
 background-image: url(images/test6.png);
     background-position: 0% 25%;
         background-size: cover;
             background-repeat: no-repeat;
             color: white;
-                text-shadow: black 0px 1px 10px;
-}
-
+                text-shadow: black 0px 1px 10px;}
 </style>
 
 <head>
@@ -23,12 +21,16 @@ background-image: url(images/test6.png);
     <meta name="author" content="Rafael Mostert">
     <!-- Include ASTRON favicon -->
     <link rel="icon" href="images/favicon.ico">
+    
+<!-- CSS Stylesheets
+================================================================= -->
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
 </head>
 
 <body>
-<!-- Bootstrap navbar -->
+<!-- Bootstrap navbar
+================================================================= -->
     <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FFFFFF;">
       <a class="navbar-brand" href="som.php">
     <img src="images/astron-logo.gif" width="105" height="30" class="d-inline-block align-top" alt="">
@@ -57,7 +59,8 @@ LOFAR-PINK Visualization Tool by Rafa&euml;l Mostert
 
     <main role="main">
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
+<!-- Main acknowledgement section
+================================================================= -->
       <div class="jumbotron">
         <div class="container">
             <h1 class="display-6">Unveiling the morphologies of the faint radio source population through unsupervised machine learning</h1>
@@ -76,8 +79,9 @@ See contact information for access to the master thesis, or more information on 
         </div>
       </div>
 
+<!-- Contact cards
+================================================================= -->
       <div class="container">
-        <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-1.5">
     <img src="images/author-small.png" width="100px" height="116px">
@@ -111,9 +115,9 @@ Applying Self-Organizing Maps to the LOFAR Two-meter Sky Survey.</i> Msc thesis,
     </footer>
     
 <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster-->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster-->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
 </body>
 

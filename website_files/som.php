@@ -1,13 +1,8 @@
 <!doctype html>
 <html>
-<!-- Author: Rafael Mostert 2017 -->
+<!-- Author: Rafael Mostert 2017-2019 -->
 <!-- Mail: rafaelmostert @ gmail.com -->
 <!-- Mail: mostert @ strw.leidenuniv.nl -->
-
-
-<!-- jQuery .hover to show prototypes and .click used to retrieve corresponding cutouts -->
-
-
 
 <head>
     <title>SOM Visualization</title>
@@ -15,18 +10,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!-- Own stylesheet -->
-    <link href="default.css" rel="stylesheet" type="text/css">
     <!-- Include ASTRON favicon -->
     <link rel="icon" href="images/favicon.ico">
-    <!-- Popover CSS 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" rel="stylesheet">
-    --> 
+    
+<!-- CSS Stylesheets
+================================================================= -->
+    <!-- Own stylesheet -->
+    <link href="default.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <!-- include Aladin Lite CSS file in the head section of your page -->
+    <!-- Aladin Lite CSS -->
     <link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
-	<script type="text/javascript">
+
+
+
+<!-- Javascript functions 
+================================================================= -->
+<script type="text/javascript">
     var proto_x;
     var proto_y;    
 $(document).ready(function() { //Make sure to load javascript after html is loaded
@@ -84,7 +84,7 @@ $('#prototype_clicked_on').hide();
 $('#cutouts_container').hide();
 $('#cutouts_explainer').hide();
 $('#containertje').hide();
-$('.chalky_font2').hide();
+$('.chalky-font2').hide();
 $('#leftpanel').css({"width": "400px"});
 var xhr= new XMLHttpRequest();
 xhr.open('GET', 'website/about_som.html', true);
@@ -105,7 +105,7 @@ var last_clicked_cutout;
 var chalk_once = true;
 function cutout_click(i){
     $('.fill').hide(100);
-    $('.chalky_font1').hide(100);
+    $('.chalky-font1').hide(100);
     $(last_clicked_cutout).css({"border":"none",
         "-webkit-box-shadow":"none",
         "-moz-box-shadow":"none",
@@ -120,11 +120,11 @@ function cutout_click(i){
     $('#leftpanel').css({"width": "100%"});
     $('#cutouts_container').animate({"width": "100%"},400);
     $('#containertje').delay(400).show(400);
-    $('.chalky_font2').delay(800).show(400);
+    $('.chalky-font2').delay(800).show(400);
     if (chalk_once == true){
-        $('.chalky_font3').delay(6000).show(400);
-        $('.chalky_font_black').delay(6000).show(400);
-        $('.chalky_font3').delay(16000).hide(400);
+        $('.chalky-font3').delay(6000).show(400);
+        $('.chalky-font-black').delay(6000).show(400);
+        $('.chalky-font3').delay(16000).hide(400);
         chalk_once = false;};
     last_clicked_cutout = "#cutouts"+i; 
     go_to_aladin(i);
@@ -152,13 +152,6 @@ function changeProtoId(xxx,yyy) {
 }
 
 
-/*$(function () {
-    $('[data-toggle="popover"]').popover({html:true, content:function() {
-                  return $('#owner-popover').html();
-                }})
-})
- */
-
 // Toggle heatmap visibility
 function toggle_heatmap() {
     if (document.getElementById("heatmap_button").innerHTML == 'Show heatmap'){
@@ -173,11 +166,14 @@ function toggle_heatmap() {
 
 </head>
 
+
+
+
 <body>
 
-<!-- Bootstrap navbar -->
-    <!--<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
-    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FFFFFF;">
+<!-- Bootstrap navbar 
+================================================================= -->
+<nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FFFFFF;">
       <a class="navbar-brand" >
     <img src="images/astron-logo.gif" width="105" height="30" class="d-inline-block align-top" alt="">
      <span style="text-align: left;font-size:8.2pt;color:#009cde;line-height:18px;font-family: Verdana,Arial,Segoe,sans-serif;">Netherlands Institute for Radio Astronomy</span>
@@ -207,6 +203,9 @@ SOM Visualization Tool by Rafa&euml;l Mostert
     </nav>
 
 <div id="content">
+
+<!-- Panel containing clickable SOM 
+================================================================= -->
 <div id="leftpanel" >
     <?php
     $maindirname = "website/";
@@ -264,18 +263,19 @@ SOM Visualization Tool by Rafa&euml;l Mostert
     <button type="button" class="btn btn-primary" onclick="load_file();" id="heatmap_button">SOM properties</button>
 -->
     <!-- Arrow pointing at SOM -->
-    <div class="chalky_font1" style="float:right;padding:10px;padding-right:80px">
+    <div class="chalky-font1" style="float:right;padding:10px;padding-right:80px">
         <img src="images/arrow-up2.png" width="30px" height="60px">
     </div>  
     <!-- SOM explainer text -->
-    <div class="chalky_font1" style="float:right;padding:0px;clear:both;">
+    <div class="chalky-font1" style="float:right;padding:0px;clear:both;">
         This is a Self-Organizing Map, trained on sources from the LOFAR survey.
         Click on one of these prototypes.
         
     </div>
 </div>
-
-    <!-- Embed Aladin snippet -->
+  
+<!-- Embedded Aladin snippet 
+================================================================= -->
     <div id="containertje" style="display:none;">
         <div id="aladin-lite-div" ></div>
         <input id="LOFARHETDEX" type="radio" name="survey" value="LOFARHETDEX" checked>
@@ -301,21 +301,21 @@ SOM Visualization Tool by Rafa&euml;l Mostert
 
         
         <!-- Text raising awareness about the Aladin controls-->
-        <div class="chalky_font_black" style="line-height:1.2;bottom:40px;left:450px;">   
+        <div class="chalky-font-black" style="line-height:1.2;bottom:40px;left:450px;">   
                 &#10550; 
         </div>
-        <div class="chalky_font3" style="line-height:1.2;top:370;left:80px;">   
+        <div class="chalky-font3" style="line-height:1.2;top:370;left:80px;">   
                <!-- Observe the radio source in different frequencies -->
         </div>
         
-        <div class="chalky_font3" style="top:110px;right:20px;
+        <div class="chalky-font3" style="top:110px;right:20px;
             width:150px">   
             Feel free to zoom, scroll or pan around <!--&#8594;-->
         </div>
     </div>
     
     <!-- Text explaining Aladin snippet -->
-    <div class="chalky_font2" style="">
+    <div class="chalky-font2" style="">
        On the left you can see where the radio source you clicked on is
         located on the sky. The source might be accompanied or interacting with other sources or be part of some larger structure!
     </div>
@@ -325,7 +325,8 @@ SOM Visualization Tool by Rafa&euml;l Mostert
 
 <center>
 
-<!-- On landing page, display instructions about the site -->
+<!-- On landing page, display welcome message and instructions about the site 
+================================================================= -->
 <div class="card" id="instructions" style="width:900px;text-align:left;">
   <div class="card-body">
     <h2 class="card-title"><span style="color:#009cde;" id="instruction_title">About this project</span></h2>
@@ -341,7 +342,8 @@ The radio data we used, with frequencies between 120 and 168Mhz, is part of the 
   </div>
 </div>
 
-<!-- Cutouts container-->
+<!-- Cutouts container
+================================================================= -->
 <div id="cutouts_container" class="imgContainer" style="display:none;">
 <div id="proto_radio_id">Radio sources from LOFAR survey that resemble the selected prototype</div>
 <?php
@@ -363,7 +365,7 @@ foreach($images as $image) {
     <div id="cutouts_explainer" style="display:none;">
         <div class="fill"></div>
         <!-- SOM explainer text -->
-        <div class="chalky_font1" style="margin:auto;padding:10px;
+        <div class="chalky-font1" style="margin:auto;padding:10px;
             clear:both;">
 
 		<?php           
@@ -375,11 +377,12 @@ foreach($images as $image) {
 </div>
 </div>
 </center>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster-->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-</body>
+    
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster-->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
+</body>
 </html>
 
