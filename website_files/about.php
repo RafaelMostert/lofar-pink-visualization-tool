@@ -47,6 +47,9 @@ background-image: url(images/test6.png);
           <li class="nav-item">
             <a class="nav-link" href="outliers.php">Morphological outliers</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inspect-pointing.php">Inspect pointing</a>
+          </li>
           <li class="nav-item active">
             <a class="nav-link">Acknowledgements</a>
           </li>

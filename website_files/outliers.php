@@ -118,6 +118,9 @@ function show_outliers() {
             <a class="nav-link" >Morphological outliers</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="inspect-pointing.php">Inspect pointing</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="about.php">Acknowledgements</a>
           </li>
         </ul>
