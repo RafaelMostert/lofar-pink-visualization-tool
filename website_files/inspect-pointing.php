@@ -106,7 +106,7 @@ function pointing_click(key){
 	$('#instructions').hide();
 
     $('#containertje').show();
-    $.getJSON("data_numbered.json", function(json) {
+    $.getJSON("data.json", function(json) {
         console.log('key is', key, typeof(key));
             RA = json[key].ra; // access the array
             DEC = json[key].dec; // access the array
