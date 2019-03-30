@@ -96,23 +96,25 @@ var stepsize = 10/3600; //degree
 // Show Aladin snippet and go to middle of the pointing
 function pointing_click(key){
     pointing_number = key;
-    var pointing_name = document.getElementById("pointingname");
-    pointing_name.innerHTML = key;
+    var pointing_span = document.getElementById("pointingname");
     console.log('key is', key);
     var RA;
     var DEC;
+    var p_name;
     //aladin.setFovRange(0.03, 30);
     $('#leftpanel').hide();
 	$('#instructions').hide();
 
     $('#containertje').show();
-    $.getJSON("data.json", function(json) {
+    $.getJSON("data_numbered.json", function(json) {
         console.log('key is', key, typeof(key));
             RA = json[key].ra; // access the array
             DEC = json[key].dec; // access the array
+            p_name = json[key].pointing_name; // access the array
 
 
-    aladin.setFov(fov)
+    pointing_span.innerHTML = p_name;
+    if ($('#autoplay-id').is("checked")) {aladin.setFov(fov);}
     aladin.gotoRaDec(RA,DEC);
         
         
@@ -124,21 +126,30 @@ function pointing_click(key){
     max_ra = RA + pointing_size/2 - fov_arr[0]/2; 
     max_dec = DEC + pointing_size/2 - fov_arr[1]/2; 
 
-    store_ra = s_ra;
+    // set values for beginning of movie
+    setTimeout(function() {store_ra = s_ra;
     store_dec = s_dec;
     a_ra = s_ra;
     a_dec = s_dec;
     start_ra = s_ra;
     start_dec = s_dec;
+        sign_ra = 1;
+        sign_dec = 0;
+        distance_travelled = 0;
     console.log('Fov en sra en dec enzo:', fov_arr, s_ra, s_dec);
     t = 0;
-    setTimeout(function() {aladin.gotoRaDec(RA,DEC);},110);
+    if ($('#autoplay-id').is(":checked")) {play();}
+    else { pause();}
+
+    aladin.gotoRaDec(RA,DEC);},110);
         });
 }
 
 // Go to next pointing
 function next_pointing() {
-    pointing_number++;
+    var p_int = parseInt(pointing_number);
+    p_int++;
+    pointing_number = String(p_int);
     pointing_click(pointing_number);
 }
 
@@ -183,8 +194,11 @@ setTimeout(function () {
          delayed_loop();             //  ..  again which will trigger another 
     }else{ 
         if (move ==1) {
-        console.log('Einde');
-        $('#play_pause_button').text('Replay');}}
+            
+        if ($('#autoplay-id').is(":checked")) {next_pointing();}
+        else{
+            console.log('Einde');
+        $('#play_pause_button').text('Replay');}}}
 }, time_delay)
 }
 
@@ -365,12 +379,15 @@ SOM Visualization Tool by <a href="https://github.com/RafaelMostert">Rafa&euml;l
     <div id="pointing-navigation" >
     <button type="button" class="btn btn-primary" onclick="location.href='inspect-pointing.php';" id="go_back_button">Back to all pointings</button> Current pointing: <span id="pointingname"></span>
 <!-- Button to go next pointing -->
-    <button type="button" class="btn btn-primary" onclick="pointing-click();" id="next_button">Next</button>
+    <button type="button" class="btn btn-primary" onclick="next_pointing();" id="next_button">Next</button>
 </div>
 
         
 <!-- Button to toggle move -->
 <div id="playback-box">
+    <!-- Autoplay checkbox-->
+    <input type="checkbox" id="autoplay-id"> Autoplay </input>
+    <!-- play/pause button -->
    <button type="button" class="btn btn-primary" onclick="play_pause();" id="play_pause_button"> Play </button>
 <!-- Slider for playback speed -->
    Play back speed <span id="demo"></span> arcsec/timestep
@@ -410,11 +427,13 @@ Click on one of the pointings below to inspect:<br>
 // Insert links to all pointings
 
 $handle = fopen("pointings.txt", "r");
+$p_counter = 0;
 if ($handle) {
     while (($line = fgets($handle)) !== false) {
         // process the line read.
         $line = preg_replace('/\s+/', '', $line);
-        echo "<a  id='$line' href='#' onclick='pointing_click(\"$line\")'>$line</a> ";
+        echo "<a  id='$line' href='#' onclick='pointing_click(\"$p_counter\")'>$line</a> ";
+        $p_counter++;
     }
 
     fclose($handle);
