@@ -42,6 +42,7 @@ var start_dec = 0;
 var max_ra = 0;
 var max_dec = 0;
 var width, height, s_ra, s_dec;
+var pointing_number = 0;
 console.log($(window).width());
 console.log($(window).height());
 
@@ -94,6 +95,9 @@ var stepsize = 10/3600; //degree
 
 // Show Aladin snippet and go to middle of the pointing
 function pointing_click(key){
+    pointing_number = key;
+    var pointing_name = document.getElementById("pointingname");
+    pointing_name.innerHTML = key;
     console.log('key is', key);
     var RA;
     var DEC;
@@ -132,7 +136,11 @@ function pointing_click(key){
         });
 }
 
-
+// Go to next pointing
+function next_pointing() {
+    pointing_number++;
+    pointing_click(pointing_number);
+}
 
 var sign_ra = 1;
 var sign_dec = 0;
@@ -332,8 +340,10 @@ SOM Visualization Tool by <a href="https://github.com/RafaelMostert">Rafa&euml;l
 	var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high"; 
 	var hipsDir2 = "http://lofar.strw.leidenuniv.nl/LoTSS_DR2_high_hips_private"; 
         var aladin = A.aladin("#aladin-lite-div", 
-            {showFullscreenControl: false, // Hide fullscreen controls 
-            showGotoControl: false, // Hide go-to controls
+            {showFullscreenControl: true, // Hide fullscreen controls 
+            showGotoControl: true, // Hide go-to controls
+            showShareControl: false, // Show share controls
+            showSimbadPointerControl: true, // Show simbad pointer
             showFrame: false, //Hide frame 'J2000' enzo
             target: [210.8,54.3], // initial coordinates M101
             fov: 0.5,
@@ -353,7 +363,10 @@ SOM Visualization Tool by <a href="https://github.com/RafaelMostert">Rafa&euml;l
 
 <!-- Button to go back to overview -->
     <div id="pointing-navigation" >
-    <button type="button" class="btn btn-primary" onclick="location.href='inspect-pointing.php';" id="go_back_button">Back to all pointings</button></div>
+    <button type="button" class="btn btn-primary" onclick="location.href='inspect-pointing.php';" id="go_back_button">Back to all pointings</button> Current pointing: <span id="pointingname"></span>
+<!-- Button to go next pointing -->
+    <button type="button" class="btn btn-primary" onclick="pointing-click();" id="next_button">Next</button>
+</div>
 
         
 <!-- Button to toggle move -->
@@ -373,7 +386,7 @@ SOM Visualization Tool by <a href="https://github.com/RafaelMostert">Rafa&euml;l
     </div>
 -->
 
-        
+  
     </div>
     
 
@@ -407,11 +420,14 @@ if ($handle) {
     fclose($handle);
 }
 
+ $jsonurl='data.json';
+  $json = file_get_contents($jsonurl,0,null,null);
+  $json_output = json_decode($json, JSON_PRETTY_PRINT);
+  echo "<br> ".count($json_output)." pointings in total.";
 
 
 ?>
 
-<a id='P10Hetdex' href='#' onclick='pointing_click("P10Hetdex")'>P10Hetdex</a>
   </div>
 </div>
 
