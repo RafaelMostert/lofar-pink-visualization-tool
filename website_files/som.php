@@ -9,7 +9,7 @@
 	<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noodp">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <!-- Include ASTRON favicon -->
     <link rel="icon" href="images/favicon.ico">
     
@@ -289,7 +289,7 @@ SOM Visualization Tool by <a href="https://github.com/RafaelMostert">Rafa&euml;l
             <label for="SDSS9">Optical (SDSS9)  <label>-->
         <input id="allWISE" type="radio" name="survey" value="P/allWISE/color">
             <label for="allWISE">Infra-red (allWISE)  <label>
-        <script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="https://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
         <script type="text/javascript">
         // INSERT A LINK TO THE PLACE WHERE YOU HOST YOUR SURVEY BELOW TO REPLACE WISE SURVEY    
 	var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high"; 
