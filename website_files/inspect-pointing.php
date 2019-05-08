@@ -95,6 +95,7 @@ var stepsize = 10/3600; //degree
 
 // Show Aladin snippet and go to middle of the pointing
 function pointing_click(key){
+    if ($('#autoplay-id').is(":checked")){} else {move = 0;}
     pointing_number = key;
     var pointing_span = document.getElementById("pointingname");
     console.log('key is', key);
@@ -114,7 +115,7 @@ function pointing_click(key){
 
 
     pointing_span.innerHTML = p_name;
-    if ($('#autoplay-id').is("checked")) {aladin.setFov(fov);}
+    if ($('#autoplay-id').is(":checked")){} else {aladin.setFov(fov);}
     aladin.gotoRaDec(RA,DEC);
         
         
@@ -233,9 +234,10 @@ $('#play_pause_button').text('Replay');
 function play() {
     $('#play_pause_button').text('Pause');
     console.log('Start playing...');
+    setTimeout(function () {
     move = 1;
     console.log('in play',store_ra, store_dec, stepsize);
-    delayed_loop(store_ra, store_dec, stepsize);
+    delayed_loop(store_ra, store_dec, stepsize);},150);
 }
 
 //Start moving
