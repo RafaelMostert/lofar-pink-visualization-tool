@@ -1,4 +1,4 @@
-# PINK Visualization Tool by Rafael Mostert 2017-2018
+# PINK Visualization Tool by Rafael Mostert
 
 ### Prerequisites
 Train your own Self-organizing map using https://github.com/HITS-AIN/PINK or your own code.
