@@ -2,9 +2,6 @@
 
 ### Prerequisites
 Train your own Self-organizing map using https://github.com/HITS-AIN/PINK or your own code.
-Requires the following github to create the content for the website:
-https://github.com/RafaelMostert/LOFAR-PINK-library
-
 
 
 ### Contents of website_files directory
@@ -34,8 +31,7 @@ https://github.com/RafaelMostert/LOFAR-PINK-library
 
 ### Adapt installation to your own Self-Organised Map
 1. Train a SOM using PINK.
-2. Generate website content using the binary_to_website.ipynb jupyter notebook
-    from https://github.com/RafaelMostert/LOFAR-PINK-library
+2. Generate website content using either the 'Generate website content' python script or the jupyter notebook.
 3. Replace the generated content in the directory 'website_files/website'.
 4. Upload the 'website' directory to your server.
 5. Done.
