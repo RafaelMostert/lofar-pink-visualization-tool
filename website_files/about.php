@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-<!-- Author: Rafael Mostert 2017-2019 -->
+<!-- Author: Rafael Mostert 2017-2020 -->
 <!-- Mail: mostert @ strw.leidenuniv.nl -->
 
 <style>

@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
-<!-- Author: Rafael Mostert 2017-2019 -->
-<!-- Mail: rafaelmostert @ gmail.com -->
+<!-- Author: Rafael Mostert 2017-2020 -->
 <!-- Mail: mostert @ strw.leidenuniv.nl -->
 
 <head>
@@ -9,7 +8,7 @@
 	<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noodp">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- Include ASTRON favicon -->
     <link rel="icon" href="images/favicon.ico">
     
@@ -292,7 +291,7 @@ SOM Visualization Tool by <a href="https://github.com/RafaelMostert">Rafa&euml;l
         <script type="text/javascript" src="https://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
         <script type="text/javascript">
         // INSERT A LINK TO THE PLACE WHERE YOU HOST YOUR SURVEY BELOW TO REPLACE WISE SURVEY    
-	var hipsDir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high"; 
+	var hipsDir = "https://lofar-surveys.org/public/HIPS/high_hips_new/"; 
         var aladin = A.aladin("#aladin-lite-div", 
             {showFullscreenControl: false, // Hide fullscreen controls 
             showGotoControl: false, // Hide go-to controls

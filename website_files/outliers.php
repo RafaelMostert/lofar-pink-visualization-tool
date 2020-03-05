@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-<!-- Author: Rafael Mostert 2017-2019 -->
+<!-- Author: Rafael Mostert 2017-2020 -->
 <!-- Mail: mostert @ strw.leidenuniv.nl -->
 
 <head>
@@ -8,7 +8,7 @@
 	<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noodp">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- Include ASTRON favicon -->
     <link rel="icon" href="images/favicon.ico">
 
@@ -25,7 +25,7 @@
 <!-- Javascript functions 
 ================================================================= -->
 <script type="text/javascript">
-    var hipsdir = "http://lofar.strw.leidenuniv.nl/hips_lotss_dr1_high";
+    var hipsdir = "https://lofar-surveys.org/public/HIPS/high_hips_new/";
     var proto_x;
     var proto_y;    
 $(document).ready(function() { //Make sure to load javascript after html is loaded
