@@ -37,7 +37,7 @@ $(document).ready(function() { //Make sure to load javascript after html is load
 	$('area').hover(		
         function() { 
 			// Function is activated on hover-in of a SOM sub-area
-            $('#hovered_prototype img').attr('src', "website/" + this.id + "/prototype.png");
+            $('#hovered_prototype img').attr('src', "website/" + this.id + "/prototype.jpg");
             $('#hovered_prototype').css('position', 'relative');
             $('#hovered_prototype').css('z-index', 3000);
         },
@@ -59,22 +59,23 @@ $(document).ready(function() { //Make sure to load javascript after html is load
 			//.style.display = 'block'; 
     
 
-            $('#prototype_clicked_on img').attr('src', "website/" + this.id + "/prototype.png");
-			for (i = 0; i < 10; i++) {
+            $('#prototype_clicked_on img').attr('src', "website/" + this.id + "/prototype.jpg");
+			for (i = 0; i < 1000; i++) {
+				$('#divisive_line' + i ).hide();
 				$('#cutouts' + i + ' img').show();
-				$('#cutouts' + i + ' img').attr('src', "website/" + this.id + "/" + i + ".png");
+				$('#cutouts' + i + ' img').attr('src', "website/" + this.id + "/" + i + ".jpg");
 				$('#cutouts' + i + ' img').attr('onerror', "this.style.display='none'"); // Hide img container if file does not exist
             }
             
             proto_x = this.id.split(/_|e/)[1];
             proto_y = this.id.split(/_|e/)[2];
             // Read divisive line from division_index.txt
-            /*$.get('website/prototype' + proto_x + '_' + proto_y + '_0/division_index.txt', function(data) {
+            $.get('website/prototype' + proto_x + '_' + proto_y + '_0/division_index.txt', function(data) {
                 divisive_index = data;
+                console.log(divisive_index); // Uncomment to write coordinates to console
+				$('#divisive_line' + divisive_index ).show();
                            }, 'text');  
-            $( "<div>style='border-top:10px dotted #000;'</div>" ).insertAfter( "#cutouts"+ divisive_index );
-            */ 
-            console.log(divisive_index); // Uncomment to write coordinates to console
+             
             changeProtoId(proto_x  , proto_y);
             $('#red_square').animate({"top": height * proto_y + "px", "left": width * proto_x + "px"},200);
             $('#red_square').show();
@@ -363,15 +364,18 @@ The radio data we used, with frequencies between 120 and 168Mhz, is part of the 
 <div id="proto_radio_id">Radio sources from LOFAR survey that resemble the selected prototype</div>
 <?php
 $dirname = "website/prototype0_0_0/";
-$images = glob($dirname."*.png");
+$images = glob($dirname."*.jpg");
 
 //  Display all available images corresponding to the prototype
 $cutout_number = 0;
-foreach($images as $image) {
-	if( $image != $dirname."prototype.png") {
+//foreach($images as $image) {
+for ($x = 0; $x < 1000; $x++) {
+	if( $image != $dirname."prototype.jpg") {
 		echo '<div id="cutouts'.$cutout_number++.'" class="imgContainer" style="padding:1px;">';
         echo "<img src=\"$image\" onclick=\"cutout_click($cutout_number - 1);\" width=\"200\" height=\"200\"/><br />";
 		echo '</div>';
+        // Insert potential divisive line
+        echo '<div id="divisive_line'.$cutout_number.'" style="border-top:10px dotted #000;display:none"></div>';
 		}
 }
 ?>
