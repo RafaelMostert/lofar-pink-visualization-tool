@@ -28,6 +28,7 @@
 <script type="text/javascript">
     var proto_x;
     var proto_y;    
+    var divisive_index;
 $(document).ready(function() { //Make sure to load javascript after html is loaded
     var div1 = document.getElementById("dom-width");
     var div2 = document.getElementById("dom-height");
@@ -56,14 +57,24 @@ $(document).ready(function() { //Make sure to load javascript after html is load
     });
 			$('#instructions').hide(400);
 			//.style.display = 'block'; 
+    
+
             $('#prototype_clicked_on img').attr('src', "website/" + this.id + "/prototype.png");
 			for (i = 0; i < 10; i++) {
 				$('#cutouts' + i + ' img').show();
 				$('#cutouts' + i + ' img').attr('src', "website/" + this.id + "/" + i + ".png");
 				$('#cutouts' + i + ' img').attr('onerror', "this.style.display='none'"); // Hide img container if file does not exist
             }
-            proto_x = this.id.split(/_|e/)[1]
-            proto_y = this.id.split(/_|e/)[2]
+            
+            proto_x = this.id.split(/_|e/)[1];
+            proto_y = this.id.split(/_|e/)[2];
+            // Read divisive line from division_index.txt
+            /*$.get('website/prototype' + proto_x + '_' + proto_y + '_0/division_index.txt', function(data) {
+                divisive_index = data;
+                           }, 'text');  
+            $( "<div>style='border-top:10px dotted #000;'</div>" ).insertAfter( "#cutouts"+ divisive_index );
+            */ 
+            console.log(divisive_index); // Uncomment to write coordinates to console
             changeProtoId(proto_x  , proto_y);
             $('#red_square').animate({"top": height * proto_y + "px", "left": width * proto_x + "px"},200);
             $('#red_square').show();
