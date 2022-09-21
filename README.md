@@ -1,5 +1,11 @@
 # PINK Visualization Tool by Rafael Mostert
 
+Interactive web visualization for the paper [Mostert et al. 2020](https://www.aanda.org/articles/aa/abs/2021/01/aa38500-20/aa38500-20.html): "Unveiling the rarest morphologies of the LOFAR Two-metre Sky Survey radio source population with self-organised maps"
+
+See https://rafaelmostert.com/lofar/som.php for a live demonstration.
+
+Note that the visualization tool is designed for desktop use only.
+
 ### Prerequisites
 Train your own Self-organizing map using https://github.com/HITS-AIN/PINK or your own code.
 
